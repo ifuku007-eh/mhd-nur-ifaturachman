@@ -6,68 +6,81 @@ import Navbar from "@/components/Navbar";
 
 const projects = [
   {
+    category: "Kanban App",
     title: "Taskify",
     image: "/images/project-taskify.jpg",
-    desc: "Kanban board app with boards, columns, tasks, auth, and realtime features.",
+    desc: "Aplikasi manajemen tugas dengan board, kolom, task, autentikasi, dan konsep realtime.",
     detail:
-      "Taskify adalah aplikasi manajemen task seperti Trello dengan board, column, task CRUD, auth, dan realtime concept.",
+      "Taskify adalah aplikasi manajemen task seperti Trello dengan board, column, task CRUD, auth, dan konsep realtime untuk kolaborasi tim.",
     stack: ["React", "Express", "Prisma", "PostgreSQL"],
   },
   {
+    category: "URL Shortener",
     title: "GoShock",
     image: "/images/project-goshock.jpg",
-    desc: "URL shortener with QR code, analytics dashboard, and link history.",
+    desc: "Pemendek URL dengan QR code, dashboard analitik, dan riwayat tautan.",
     detail:
-      "GoShock adalah URL shortener berbasis Go dan Next.js dengan QR generator dan statistik klik.",
+      "GoShock adalah URL shortener berbasis Go dan Next.js dengan QR generator dan statistik klik secara real-time.",
     stack: ["Next.js", "Go", "Gin", "SQLite"],
   },
   {
+    category: "E-Commerce",
     title: "Ifuku Store",
     image: "/images/project-store.jpg",
-    desc: "MLBB digital product shop with cart and payment flow.",
+    desc: "Toko produk digital MLBB lengkap dengan keranjang dan alur pembayaran.",
     detail:
-      "Ifuku Store adalah toko digital Mobile Legends dengan auth, cart, dan admin panel.",
+      "Ifuku Store adalah toko digital Mobile Legends dengan autentikasi, cart, dan admin panel untuk kelola produk.",
     stack: ["Next.js", "Supabase", "Tailwind"],
   },
   {
+    category: "Social Media",
     title: "Circle MLBB",
     image: "/images/project-circle.jpg",
-    desc: "Social media app for MLBB players.",
+    desc: "Aplikasi sosial media untuk komunitas pemain Mobile Legends.",
     detail:
-      "Circle MLBB adalah social media app dengan post, like, comment, dan profile.",
+      "Circle MLBB adalah social media app dengan post, like, comment, dan profile untuk komunitas pemain MLBB.",
     stack: ["React", "Socket.IO", "Prisma"],
   },
   {
+    category: "Utility App",
     title: "Split Bill Calculator",
     image: "/images/project-splitbill.jpg",
-    desc: "Receipt OCR and bill splitting app.",
+    desc: "Pembaca struk OCR sekaligus aplikasi pembagi tagihan bersama.",
     detail:
-      "Aplikasi split bill dengan OCR receipt dan berbagai metode pembagian.",
+      "Aplikasi split bill dengan OCR receipt untuk membaca struk otomatis dan berbagai metode pembagian tagihan.",
     stack: ["Next.js", "OCR", "TypeScript"],
   },
   {
+    category: "Portfolio",
     title: "Portfolio Web",
     image: "/images/project-portfolio.jpg",
-    desc: "Modern responsive portfolio website.",
+    desc: "Situs portofolio modern dengan tema gelap dan desain responsif.",
     detail:
-      "Portfolio modern dengan dark theme dan responsive design.",
+      "Portfolio modern dengan dark theme, layout responsif, dan performa loading yang cepat.",
     stack: ["Next.js", "Tailwind", "Vercel"],
   },
 ];
 
-const stacks = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "JavaScript",
-  "Node.js",
-  "Express",
-  "PostgreSQL",
-  "Prisma",
-  "Supabase",
-  "Tailwind CSS",
-  "Git & GitHub",
-  "Vercel",
+const skillGroups = [
+  {
+    label: "Frontend",
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS"],
+  },
+  {
+    label: "Backend",
+    items: ["Node.js", "Express", "PostgreSQL", "Prisma", "Supabase"],
+  },
+  {
+    label: "Tools",
+    items: ["Git & GitHub", "Vercel"],
+  },
+];
+
+const stats = [
+  ["3+", "Tahun Pengalaman"],
+  ["20+", "Proyek Dibangun"],
+  ["15+", "Klien Puas"],
+  ["∞", "Kopi Terminum"],
 ];
 
 export default function Home() {
@@ -77,108 +90,82 @@ export default function Home() {
 
   const whatsappLink =
     "https://wa.me/6282171734864?text=Halo%20Mhd%20Nur%20Ifaturachman,%20saya%20tertarik%20dengan%20project%20Anda.";
+  const githubLink = "https://github.com/ifuku007-eh";
+  const linkedinLink = "https://www.linkedin.com/in/mhd-nur-ifaturachman/";
+  const email = "ifaturachman7@gmail.com";
+  const emailLink = `mailto:${email}`;
 
   return (
-    <main className="min-h-screen bg-[#07111f] text-white">
+    <main className="min-h-screen text-white">
       <Navbar />
 
+      {/* HERO */}
       <section
         id="home"
-        className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center"
+        className="mx-auto flex max-w-4xl flex-col items-center px-6 py-28 text-center"
       >
-        <div>
-          <p className="mb-5 text-sm font-bold uppercase tracking-[0.35em] text-emerald-400">
-            Full-Stack Developer
-          </p>
+        <span className="mb-8 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-xs font-medium text-emerald-300">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          Terbuka untuk proyek baru
+        </span>
 
-          <h2 className="text-5xl font-black leading-tight md:text-6xl">
-            Hi, I&apos;m Mhd Nur Ifaturachman
-          </h2>
+        <p className="mb-4 font-mono text-sm uppercase tracking-[0.4em] text-emerald-400">
+          — Portofolio
+        </p>
 
-          <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-            I build modern, responsive, and production-ready web applications
-            from frontend to backend.
-          </p>
+        <h1 className="text-5xl font-black leading-[1.05] md:text-7xl">
+          Mhd Nur
+          <br />
+          Ifaturachman
+        </h1>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="rounded-xl bg-emerald-500 px-6 py-3 font-bold text-black"
-            >
-              View Projects
-            </a>
+        <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
+          Full-Stack Developer — saya merancang dan membangun aplikasi web
+          modern, rapi, dan siap produksi, dari sisi frontend hingga backend.
+        </p>
 
-            <a
-              href={whatsappLink}
-              target="_blank"
-              className="rounded-xl border border-white/20 px-6 py-3 font-bold"
-            >
-              WhatsApp Me
-            </a>
-          </div>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="#projects"
+            className="rounded-xl bg-emerald-500 px-7 py-3 font-bold text-black hover:bg-emerald-400"
+          >
+            Lihat Karya ↓
+          </a>
+          <a
+            href={whatsappLink}
+            target="_blank"
+            className="rounded-xl border border-white/15 px-7 py-3 font-bold text-white hover:border-emerald-400/50 hover:text-emerald-300"
+          >
+            Hubungi via WhatsApp
+          </a>
         </div>
 
-        <div className="mx-auto w-full max-w-md rounded-[2rem] border border-white/10 bg-white/5 p-5">
-          <Image
-            src="/images/profile.jpg"
-            alt="Profile"
-            width={500}
-            height={500}
-            className="h-[420px] w-full rounded-[1.5rem] object-cover"
-            priority
-          />
-        </div>
-      </section>
-
-      <section className="border-y border-white/10 bg-white/[0.03]">
-        <div className="mx-auto grid max-w-6xl gap-8 px-6 py-10 text-center sm:grid-cols-2 md:grid-cols-4">
-          {[
-            ["3+", "Years Experience"],
-            ["20+", "Projects Built"],
-            ["15+", "Happy Clients"],
-            ["∞", "Coffee Consumed"],
-          ].map(([num, text]) => (
+        <div className="mt-16 grid w-full grid-cols-2 gap-6 border-t border-white/10 pt-10 sm:grid-cols-4">
+          {stats.map(([num, text]) => (
             <div key={text}>
-              <h3 className="text-4xl font-black text-emerald-400">{num}</h3>
-              <p className="text-slate-300">{text}</p>
+              <h3 className="text-3xl font-black text-emerald-400">{num}</h3>
+              <p className="mt-1 text-sm text-slate-400">{text}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="stack" className="mx-auto max-w-6xl px-6 py-20">
-        <p className="text-sm font-bold uppercase tracking-[0.35em] text-emerald-400">
-          Tech Stack
+      {/* PROJECTS */}
+      <section id="projects" className="mx-auto max-w-6xl px-6 py-24">
+        <p className="font-mono text-sm uppercase tracking-[0.4em] text-emerald-400">
+          Portofolio
+        </p>
+        <h2 className="mt-3 text-4xl font-black md:text-5xl">Karya Pilihan</h2>
+        <p className="mt-4 max-w-xl text-slate-400">
+          Kumpulan proyek terbaik yang menunjukkan kemampuan teknis saya dari
+          frontend hingga backend.
         </p>
 
-        <h2 className="mt-3 text-4xl font-black">
-          Technologies I Work With
-        </h2>
-
-        <div className="mt-8 flex flex-wrap gap-3">
-          {stacks.map((stack) => (
-            <span
-              key={stack}
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm"
-            >
-              {stack}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      <section id="projects" className="mx-auto max-w-6xl px-6 py-20">
-        <p className="text-sm font-bold uppercase tracking-[0.35em] text-emerald-400">
-          Projects
-        </p>
-
-        <h2 className="mt-3 text-4xl font-black">Selected Works</h2>
-
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
             <article
               key={project.title}
-              className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] transition hover:-translate-y-1 hover:border-emerald-400/60"
+              className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] hover:border-emerald-400/50"
             >
               <Image
                 src={project.image}
@@ -189,9 +176,12 @@ export default function Home() {
               />
 
               <div className="p-6">
-                <h3 className="text-2xl font-black">{project.title}</h3>
+                <p className="font-mono text-xs uppercase tracking-widest text-emerald-400">
+                  {project.category}
+                </p>
+                <h3 className="mt-2 text-2xl font-black">{project.title}</h3>
 
-                <p className="mt-3 leading-7 text-slate-300">
+                <p className="mt-3 leading-7 text-slate-400">
                   {project.desc}
                 </p>
 
@@ -208,9 +198,9 @@ export default function Home() {
 
                 <button
                   onClick={() => setSelectedProject(project)}
-                  className="mt-6 rounded-xl bg-emerald-500 px-5 py-3 font-bold text-black hover:bg-emerald-400"
+                  className="mt-6 flex items-center gap-2 font-bold text-emerald-400 hover:text-emerald-300"
                 >
-                  View Detail
+                  Lihat Detail <span>→</span>
                 </button>
               </div>
             </article>
@@ -218,34 +208,126 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="mx-auto max-w-6xl px-6 py-20">
-        <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-emerald-500/10 to-blue-500/10 p-10 text-center">
-          <h2 className="text-4xl font-black">
-            Let&apos;s Build Something Great
-          </h2>
+      {/* ABOUT */}
+      <section
+        id="about"
+        className="border-y border-white/10 bg-white/[0.02] py-24"
+      >
+        <div className="mx-auto grid max-w-6xl gap-14 px-6 md:grid-cols-2 md:items-center">
+          <div>
+            <p className="font-mono text-sm uppercase tracking-[0.4em] text-emerald-400">
+              Tentang
+            </p>
+            <h2 className="mt-3 text-4xl font-black">
+              Halo, Saya Nur 👋
+            </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-slate-300">
-            Need a portfolio, dashboard, store, or full-stack app? Let&apos;s
-            turn your idea into a real product.
-          </p>
+            <p className="mt-6 leading-8 text-slate-300">
+              Saya seorang developer yang senang membangun produk digital
+              yang tidak hanya berfungsi dengan baik, tapi juga terasa rapi
+              dan enak dipakai. Dengan pengalaman 3+ tahun, saya sudah
+              membantu berbagai klien membangun aplikasi web dari nol
+              hingga rilis.
+            </p>
 
-          <a
-            href={whatsappLink}
-            target="_blank"
-            className="mt-8 inline-block rounded-xl bg-emerald-500 px-6 py-3 font-bold text-black"
-          >
-            WhatsApp Me
-          </a>
+            <div className="mt-8 space-y-5">
+              {skillGroups.map((group) => (
+                <div key={group.label}>
+                  <p className="text-sm font-bold text-white">
+                    {group.label}
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mx-auto w-full max-w-sm">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4">
+              <Image
+                src="/images/profile.jpg"
+                alt="Mhd Nur Ifaturachman"
+                width={500}
+                height={500}
+                className="h-[380px] w-full rounded-xl object-cover"
+              />
+              <div className="mt-4 px-1">
+                <p className="text-lg font-black">Mhd Nur Ifaturachman</p>
+                <p className="text-sm text-slate-400">
+                  Full-Stack Developer
+                </p>
+                <p className="mt-2 text-sm text-slate-500">
+                  Terbuka untuk kolaborasi remote maupun on-site.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <footer className="border-t border-white/10 px-6 py-8 text-center text-sm text-slate-400">
-        © 2026 Mhd Nur Ifaturachman. Built with Next.js.
+      {/* CONTACT */}
+      <section id="contact" className="mx-auto max-w-4xl px-6 py-24 text-center">
+        <p className="font-mono text-sm uppercase tracking-[0.4em] text-emerald-400">
+          Kontak
+        </p>
+        <h2 className="mt-3 text-4xl font-black md:text-5xl">
+          Mari Berkolaborasi ✦
+        </h2>
+        <p className="mx-auto mt-5 max-w-xl text-slate-400">
+          Punya ide proyek, dashboard, toko online, atau aplikasi full-stack?
+          Mari kita wujudkan menjadi produk nyata.
+        </p>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href={whatsappLink}
+            target="_blank"
+            className="rounded-xl bg-emerald-500 px-7 py-3 font-bold text-black hover:bg-emerald-400"
+          >
+            WhatsApp
+          </a>
+          <a
+            href={emailLink}
+            className="rounded-xl border border-white/15 px-7 py-3 font-bold hover:border-emerald-400/50 hover:text-emerald-300"
+          >
+            Email
+          </a>
+          <a
+            href={linkedinLink}
+            target="_blank"
+            className="rounded-xl border border-white/15 px-7 py-3 font-bold hover:border-emerald-400/50 hover:text-emerald-300"
+          >
+            LinkedIn
+          </a>
+          <a
+            href={githubLink}
+            target="_blank"
+            className="rounded-xl border border-white/15 px-7 py-3 font-bold hover:border-emerald-400/50 hover:text-emerald-300"
+          >
+            GitHub
+          </a>
+        </div>
+
+        <p className="mt-6 text-sm text-slate-500">{email}</p>
+      </section>
+
+      <footer className="border-t border-white/10 px-6 py-8 text-center text-sm text-slate-500">
+        Dirancang &amp; dibangun dengan ♥ oleh{" "}
+        <span className="text-slate-300">Mhd Nur Ifaturachman</span> — 2026
       </footer>
 
       {selectedProject && (
         <div className="fixed inset-0 z-[99] flex items-center justify-center bg-black/70 px-6">
-          <div className="relative max-w-xl rounded-3xl border border-white/10 bg-[#0b1728] p-6 shadow-2xl">
+          <div className="relative max-w-xl rounded-2xl border border-white/10 bg-[#0b0c11] p-6 shadow-2xl">
             <button
               onClick={() => setSelectedProject(null)}
               className="absolute right-5 top-5 text-2xl text-slate-400 hover:text-white"
@@ -258,10 +340,13 @@ export default function Home() {
               alt={selectedProject.title}
               width={700}
               height={400}
-              className="h-56 w-full rounded-2xl object-cover"
+              className="h-56 w-full rounded-xl object-cover"
             />
 
-            <h3 className="mt-6 text-3xl font-black">
+            <p className="mt-6 font-mono text-xs uppercase tracking-widest text-emerald-400">
+              {selectedProject.category}
+            </p>
+            <h3 className="mt-2 text-3xl font-black">
               {selectedProject.title}
             </h3>
 
