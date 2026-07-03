@@ -18,7 +18,7 @@ export default function Navbar() {
         <a href="#home" className="flex items-center gap-2 text-lg font-bold">
           <span className="text-emerald-400">✦</span>
           <span>
-            MN<span className="text-emerald-400">.</span>dev
+            IIF<span className="text-emerald-400">.</span>dev
           </span>
         </a>
 

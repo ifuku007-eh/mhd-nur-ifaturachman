@@ -77,9 +77,9 @@ const skillGroups = [
 ];
 
 const stats = [
-  ["3+", "Tahun Pengalaman"],
-  ["20+", "Proyek Dibangun"],
-  ["15+", "Klien Puas"],
+  ["1+", "Tahun Pengalaman"],
+  ["5+", "Proyek Dibangun"],
+  ["30+", "Klien Puas"],
   ["∞", "Kopi Terminum"],
 ];
 
@@ -219,13 +219,13 @@ export default function Home() {
               Tentang
             </p>
             <h2 className="mt-3 text-4xl font-black">
-              Halo, Saya Nur 👋
+              Halo, Saya Iif 👋
             </h2>
 
             <p className="mt-6 leading-8 text-slate-300">
               Saya seorang developer yang senang membangun produk digital
               yang tidak hanya berfungsi dengan baik, tapi juga terasa rapi
-              dan enak dipakai. Dengan pengalaman 3+ tahun, saya sudah
+              dan enak dipakai. Dengan pengalaman 1+ tahun, saya sudah
               membantu berbagai klien membangun aplikasi web dari nol
               hingga rilis.
             </p>
