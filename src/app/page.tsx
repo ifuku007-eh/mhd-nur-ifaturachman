@@ -13,6 +13,7 @@ const projects = [
     detail:
       "Taskify adalah aplikasi manajemen task seperti Trello dengan board, column, task CRUD, auth, dan konsep realtime untuk kolaborasi tim.",
     stack: ["React", "Express", "Prisma", "PostgreSQL"],
+    liveDemo: "https://taskify-task-seven.vercel.app/",
   },
   {
     category: "URL Shortener",
@@ -22,6 +23,7 @@ const projects = [
     detail:
       "GoShock adalah URL shortener berbasis Go dan Next.js dengan QR generator dan statistik klik secara real-time.",
     stack: ["Next.js", "Go", "Gin", "SQLite"],
+    liveDemo: "https://goshock.vercel.app/",
   },
   {
     category: "E-Commerce",
@@ -31,6 +33,7 @@ const projects = [
     detail:
       "Ifuku Store adalah toko digital Mobile Legends dengan autentikasi, cart, dan admin panel untuk kelola produk.",
     stack: ["Next.js", "Supabase", "Tailwind"],
+    liveDemo: "https://quick-shop-mlbb.vercel.app/",
   },
   {
     category: "Social Media",
@@ -40,6 +43,7 @@ const projects = [
     detail:
       "Circle MLBB adalah social media app dengan post, like, comment, dan profile untuk komunitas pemain MLBB.",
     stack: ["React", "Socket.IO", "Prisma"],
+    liveDemo: "https://circle-mlbb.vercel.app/",
   },
   {
     category: "Utility App",
@@ -49,15 +53,18 @@ const projects = [
     detail:
       "Aplikasi split bill dengan OCR receipt untuk membaca struk otomatis dan berbagai metode pembagian tagihan.",
     stack: ["Next.js", "OCR", "TypeScript"],
+    liveDemo: "https://split-bill-calculator-flax.vercel.app/",
   },
   {
-    category: "Portfolio",
-    title: "Portfolio Web",
-    image: "/images/project-portfolio.jpg",
-    desc: "Situs portofolio modern dengan tema gelap dan desain responsif.",
+    category: "Laravel",
+    title: "Coming Soon",
+    image: null,
+    desc: "Sedang belajar dan membangun proyek baru menggunakan Laravel.",
     detail:
-      "Portfolio modern dengan dark theme, layout responsif, dan performa loading yang cepat.",
-    stack: ["Next.js", "Tailwind", "Vercel"],
+      "Proyek ini sedang dalam proses pembelajaran. Saya sedang memperdalam Laravel untuk pengembangan backend dan akan segera menambahkan proyek nyata di sini.",
+    stack: ["Laravel", "PHP", "MySQL"],
+    comingSoon: true,
+    liveDemo: null,
   },
 ];
 
@@ -77,9 +84,9 @@ const skillGroups = [
 ];
 
 const stats = [
-  ["1+", "Tahun Pengalaman"],
-  ["5+", "Proyek Dibangun"],
-  ["30+", "Klien Puas"],
+  ["3+", "Tahun Pengalaman"],
+  ["20+", "Proyek Dibangun"],
+  ["15+", "Klien Puas"],
   ["∞", "Kopi Terminum"],
 ];
 
@@ -167,13 +174,22 @@ export default function Home() {
               key={project.title}
               className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] hover:border-emerald-400/50"
             >
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={600}
-                height={360}
-                className="h-48 w-full object-cover"
-              />
+              {project.image ? (
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={600}
+                  height={360}
+                  className="h-48 w-full object-cover"
+                />
+              ) : (
+                <div className="flex h-48 w-full flex-col items-center justify-center gap-2 bg-white/[0.04] text-slate-500">
+                  <span className="text-3xl">🚧</span>
+                  <span className="font-mono text-xs uppercase tracking-widest">
+                    Coming Soon
+                  </span>
+                </div>
+              )}
 
               <div className="p-6">
                 <p className="font-mono text-xs uppercase tracking-widest text-emerald-400">
@@ -196,12 +212,18 @@ export default function Home() {
                   ))}
                 </div>
 
-                <button
-                  onClick={() => setSelectedProject(project)}
-                  className="mt-6 flex items-center gap-2 font-bold text-emerald-400 hover:text-emerald-300"
-                >
-                  Lihat Detail <span>→</span>
-                </button>
+                {project.comingSoon ? (
+                  <span className="mt-6 inline-flex items-center gap-2 font-bold text-slate-500">
+                    Segera Hadir <span>⏳</span>
+                  </span>
+                ) : (
+                  <button
+                    onClick={() => setSelectedProject(project)}
+                    className="mt-6 flex items-center gap-2 font-bold text-emerald-400 hover:text-emerald-300"
+                  >
+                    Lihat Detail <span>→</span>
+                  </button>
+                )}
               </div>
             </article>
           ))}
@@ -219,13 +241,13 @@ export default function Home() {
               Tentang
             </p>
             <h2 className="mt-3 text-4xl font-black">
-              Halo, Saya Iif 👋
+              Halo, Saya Nur 👋
             </h2>
 
             <p className="mt-6 leading-8 text-slate-300">
               Saya seorang developer yang senang membangun produk digital
               yang tidak hanya berfungsi dengan baik, tapi juga terasa rapi
-              dan enak dipakai. Dengan pengalaman 1+ tahun, saya sudah
+              dan enak dipakai. Dengan pengalaman 3+ tahun, saya sudah
               membantu berbagai klien membangun aplikasi web dari nol
               hingga rilis.
             </p>
@@ -335,13 +357,15 @@ export default function Home() {
               ×
             </button>
 
-            <Image
-              src={selectedProject.image}
-              alt={selectedProject.title}
-              width={700}
-              height={400}
-              className="h-56 w-full rounded-xl object-cover"
-            />
+            {selectedProject.image && (
+              <Image
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                width={700}
+                height={400}
+                className="h-56 w-full rounded-xl object-cover"
+              />
+            )}
 
             <p className="mt-6 font-mono text-xs uppercase tracking-widest text-emerald-400">
               {selectedProject.category}
@@ -364,6 +388,17 @@ export default function Home() {
                 </span>
               ))}
             </div>
+
+            {selectedProject.liveDemo && (
+              <a
+                href={selectedProject.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 font-bold text-black hover:bg-emerald-400"
+              >
+                Live Demo <span>↗</span>
+              </a>
+            )}
           </div>
         </div>
       )}
